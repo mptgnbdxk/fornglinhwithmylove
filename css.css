@@ -1,0 +1,131 @@
+/* =========================================================
+   Y2K PASTEL DESKTOP - SPECIAL EDITION FOR NLINHK 🌸
+   ========================================================= */
+
+/* Custom Y2K Fonts */
+.font-pixel { font-family: 'Silkscreen', 'Press Start 2P', cursive, monospace; }
+.font-vt { font-family: 'VT323', monospace; }
+
+/* Custom Y2K Mouse Cursor - Pixel Heart */
+body, button, a, input, label, select, textarea {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23f472b6" stroke="%23ffffff" stroke-width="1.5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>'), auto !important;
+}
+
+body {
+    user-select: none;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', 'Nunito', sans-serif;
+    background-color: #fff0f3;
+}
+
+/* Canvas Nền Đỏ Trắng Caro + Trang Trí */
+#bgCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.desktop {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+}
+
+/* ================= WINDOWS 98/XP RETRO 3D PANEL & BUTTONS ================= */
+.win-y2k-panel {
+    background: #fff5f8;
+    border-top: 3px solid #ffffff;
+    border-left: 3px solid #ffffff;
+    border-right: 3px solid #d8b4fe;
+    border-bottom: 3px solid #d8b4fe;
+    box-shadow: 4px 6px 0px rgba(244, 114, 182, 0.25);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.y2k-window {
+    position: absolute;
+    min-width: 290px;
+    z-index: 10;
+    display: none;
+}
+
+/* Title Bar Pastel Gradient */
+.titlebar-y2k, .window-header {
+    background: linear-gradient(90deg, #f472b6 0%, #c084fc 50%, #818cf8 100%);
+    padding: 6px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+    border-bottom: 2px solid #ffffff;
+}
+
+.btn-y2k-3d {
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #c084fc;
+    border-bottom: 2px solid #c084fc;
+    background: linear-gradient(180deg, #ffffff 0%, #fae8ff 100%);
+    box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #9333ea;
+    transition: all 0.05s ease;
+}
+
+.btn-y2k-3d:active {
+    border-top: 2px solid #c084fc;
+    border-left: 2px solid #c084fc;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    transform: translate(1px, 1px);
+    box-shadow: none;
+}
+
+/* ================= ANIMATIONS & EFFECTS ================= */
+
+.sparkle {
+    position: absolute;
+    pointer-events: none;
+    animation: popSparkle 0.7s ease-out forwards;
+    z-index: 9999;
+}
+
+@keyframes popSparkle {
+    0% { transform: scale(0) rotate(0deg); opacity: 1; }
+    50% { transform: scale(1.4) rotate(180deg); opacity: 0.9; }
+    100% { transform: scale(0.2) rotate(360deg); opacity: 0; }
+}
+
+.custom-scrollbar::-webkit-scrollbar { width: 10px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: #fce7f3; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #f472b6; border-radius: 4px; border: 2px solid #ffffff; }
+
+@keyframes floatBunny {
+    0%, 100% { transform: translateY(0px) rotate(-2deg); }
+    50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+.floating-bunny, .bunny-sticker { 
+    animation: floatBunny 3s ease-in-out infinite; 
+}
+
+.cd-spin, .spinning { 
+    animation: spin 4s linear infinite; 
+}
+
+@keyframes spin { 
+    100% { transform: rotate(360deg); } 
+}

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Women's Day 20/10 - Nlinh's Y2K Desktop 🌸🐰</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Silkscreen, VT323 & Quicksand -->
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=VT323&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- Custom CSS File -->
+  <link rel="stylesheet" href="css.css">
+</head>
+<body id="y2k-body" class="relative select-none" onclick="spawnSparkle(event)">
+
+  <!-- CANVAS BACKGROUND HÌNH NỀN ĐỎ TRẮNG -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- BACKGROUND DECORATIONS (Floating Stickers) -->
+  <div class="absolute top-8 right-12 opacity-80 pointer-events-none floating-bunny z-0">
+    <svg width="70" height="70" viewBox="0 0 100 100" fill="none">
+      <ellipse cx="38" cy="28" rx="8" ry="22" fill="#FFFFFF" stroke="#F472B6" stroke-width="3"/>
+      <ellipse cx="38" cy="28" rx="4" ry="14" fill="#FFD1DC"/>
+      <ellipse cx="62" cy="28" rx="8" ry="22" fill="#FFFFFF" stroke="#F472B6" stroke-width="3"/>
+      <ellipse cx="62" cy="28" rx="4" ry="14" fill="#FFD1DC"/>
+      <circle cx="50" cy="58" r="26" fill="#FFFFFF" stroke="#F472B6" stroke-width="3"/>
+      <circle cx="42" cy="54" r="3" fill="#4B5563"/>
+      <circle cx="58" cy="54" r="3" fill="#4B5563"/>
+      <polygon points="50,59 47,62 53,62" fill="#F472B6"/>
+      <ellipse cx="36" cy="62" rx="4" ry="2.5" fill="#FFB6C1" opacity="0.8"/>
+      <ellipse cx="64" cy="62" rx="4" ry="2.5" fill="#FFB6C1" opacity="0.8"/>
+    </svg>
+  </div>
+  
+  <div class="absolute bottom-20 left-8 opacity-70 pointer-events-none z-0">
+    <span class="font-pixel text-pink-600 text-sm tracking-widest drop-shadow">★ 🐰 HAPPY 20/10 NLINH 🌸 ★</span>
+  </div>
+
+  <!-- DESKTOP CONTAINER -->
+  <div id="desktop" class="w-full h-[calc(100vh-48px)] p-6 relative overflow-hidden grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 align-content-start z-10">
+
+    <!-- 1. ICON: THƯ TÌNH 20/10 -->
+    <div onclick="openWindow('win-letter')" class="flex flex-col items-center justify-center p-2 rounded-xl cursor-pointer hover:bg-white/50 transition group">
+      <div class="w-16 h-16 relative flex items-center justify-center">
+        <svg width="58" height="52" viewBox="0 0 58 52" fill="none">
+          <path d="M4 10C4 7.79 5.79 6 8 6H22L27 12H50C52.2 12 54 13.79 54 16V42C54 44.2 52.2 46 50 46H8C5.79 46 4 44.2 4 42V10Z" fill="#FBCFE8" stroke="#F472B6" stroke-width="2.5"/>
+          <path d="M2 16C2 13.79 3.79 12 6 12H52C54.2 12 56 13.79 56 16V42C56 44.2 54.2 46 52 46H6C3.79 46 2 44.2 2 42V16Z" fill="#F472B6" stroke="#DB2777" stroke-width="2"/>
+        </svg>
+        <span class="absolute top-5 text-white font-pixel text-xs">✉️</span>
+      </div>
+      <span class="font-pixel text-[11px] font-bold text-pink-900 bg-white/90 border border-pink-300 px-2 py-0.5 rounded-md shadow mt-1 group-hover:bg-pink-100 text-center">Thu_Gui_Nlinh.txt</span>
+    </div>
+
+    <!-- 2. ICON: ALBUM ẢNH NLINH -->
+    <div onclick="openWindow('win-album')" class="flex flex-col items-center justify-center p-2 rounded-xl cursor-pointer hover:bg-white/50 transition group">
+      <div class="w-16 h-16 relative flex items-center justify-center">
+        <svg width="54" height="50" viewBox="0 0 54 50" fill="none">
+          <rect x="3" y="5" width="48" height="40" rx="6" fill="#E9D5FF" stroke="#A855F7" stroke-width="2.5"/>
+          <circle cx="20" cy="18" r="5" fill="#FDE047"/>
+          <path d="M10 37L22 23L32 32L38 27L44 37H10Z" fill="#C084FC"/>
+        </svg>
+        <span class="absolute -bottom-1 -right-1 text-sm">🐰</span>
+      </div>
+      <span class="font-pixel text-[11px] font-bold text-purple-900 bg-white/90 border border-purple-300 px-2 py-0.5 rounded-md shadow mt-1 group-hover:bg-purple-100 text-center">Album_Nlinh.exe</span>
+    </div>
+
+    <!-- 3. ICON: MUSIC PLAYER -->
+    <div onclick="openWindow('win-music')" class="flex flex-col items-center justify-center p-2 rounded-xl cursor-pointer hover:bg-white/50 transition group">
+      <div class="w-16 h-16 relative flex items-center justify-center">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-pink-300 via-purple-300 to-indigo-300 border-2 border-white shadow-md flex items-center justify-center">
+          <div class="w-4 h-4 rounded-full bg-white border border-purple-300 flex items-center justify-center">
+            <div class="w-1.5 h-1.5 rounded-full bg-pink-500"></div>
+          </div>
+        </div>
+        <span class="absolute top-1 right-2 text-xs">🎵</span>
+      </div>
+      <span class="font-pixel text-[11px] font-bold text-indigo-900 bg-white/90 border border-indigo-300 px-2 py-0.5 rounded-md shadow mt-1 group-hover:bg-indigo-100 text-center">Y2K_Music.exe</span>
+    </div>
+
+    <!-- 4. ICON: BAT NGO FOR NLINH -->
+    <div onclick="openWindow('win-gift')" class="flex flex-col items-center justify-center p-2 rounded-xl cursor-pointer hover:bg-white/50 transition group">
+      <div class="w-16 h-16 relative flex items-center justify-center">
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+          <rect x="8" y="20" width="36" height="26" rx="4" fill="#F472B6" stroke="#BE185D" stroke-width="2"/>
+          <path d="M4 14C4 12.89 4.89 12 6 12H46C47.1 12 48 12.89 48 14V20H4V14Z" fill="#FB7185" stroke="#BE185D" stroke-width="2"/>
+          <rect x="23" y="12" width="6" height="34" fill="#FEF08A"/>
+          <path d="M26 12C26 12 20 4 15 7C10 10 20 14 26 12Z" fill="#FACC15"/>
+          <path d="M26 12C26 12 32 4 37 7C42 10 32 14 26 12Z" fill="#FACC15"/>
+        </svg>
+      </div>
+      <span class="font-pixel text-[11px] font-bold text-rose-900 bg-white/90 border border-rose-300 px-2 py-0.5 rounded-md shadow mt-1 group-hover:bg-rose-100 text-center">BatNgo_2010.gift</span>
+    </div>
+
+    <!-- 5. ICON: DO YOU LOVE ME DIALOG -->
+    <div onclick="openWindow('win-dialog')" class="flex flex-col items-center justify-center p-2 rounded-xl cursor-pointer hover:bg-white/50 transition group">
+      <div class="w-16 h-16 relative flex items-center justify-center">
+        <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
+          <circle cx="25" cy="25" r="22" fill="#FEF08A" stroke="#EAB308" stroke-width="2.5"/>
+        </svg>
+        <span class="absolute font-pixel text-xs font-bold text-pink-600">❓</span>
+      </div>
+      <span class="font-pixel text-[11px] font-bold text-amber-900 bg-white/90 border border-amber-300 px-2 py-0.5 rounded-md shadow mt-1 group-hover:bg-amber-100 text-center">LoveQuestion.dialog</span>
+    </div>
+
+  </div>
+
+  <!-- WINDOWS LAYER -->
+  <div id="windows-layer" class="pointer-events-none absolute inset-0 z-20 overflow-hidden">
+
+    <!-- WINDOW 1: THƯ TÌNH 20/10 -->
+    <div id="win-letter" class="win-y2k-panel bg-white pointer-events-auto absolute w-80 sm:w-[460px] top-10 left-6 sm:left-20 hidden flex-col rounded-t-xl">
+      <div class="titlebar-y2k px-3 py-1.5 flex items-center justify-between cursor-move" onmousedown="dragStart(event, 'win-letter')">
+        <div class="flex items-center space-x-2">
+          <span class="text-xs">🌸</span>
+          <span class="font-pixel text-xs font-bold text-white drop-shadow">C:\Desktop\Thu_Gui_Nlinh.txt</span>
+        </div>
+        <button onclick="closeWindow('win-letter')" class="btn-y2k-3d w-5 h-5 flex items-center justify-center font-pixel text-xs text-pink-700 font-bold rounded-sm">✕</button>
+      </div>
+      <div class="bg-pink-50 border-b border-pink-200 px-3 py-1 text-[11px] font-pixel text-purple-800 flex space-x-4">
+        <span class="hover:underline cursor-pointer"><u>F</u>ile</span>
+        <span class="hover:underline cursor-pointer"><u>E</u>dit</span>
+        <span class="hover:underline cursor-pointer"><u>V</u>iew</span>
+        <span class="hover:underline cursor-pointer"><u>H</u>elp</span>
+      </div>
+      <div class="p-5 text-gray-700 text-xs sm:text-sm leading-relaxed custom-scrollbar max-h-96 overflow-y-auto bg-[#fffdfa]">
+        <div class="flex items-center justify-between mb-4 pb-2 border-b-2 border-dashed border-pink-200">
+          <div class="flex items-center space-x-2">
+            <span class="text-2xl">🐰</span>
+            <div>
+              <h2 class="font-pixel text-sm font-bold text-pink-600"> Nàng Phù Thủy Nlinh ✨</h2>
+              <p class="font-vt text-sm text-gray-500">Nhân ngày 20/10</p>
+            </div>
+          </div>
+          <span class="font-pixel text-xs text-purple-500 bg-purple-100 px-2 py-1 rounded-md">20/10 Special</span>
+        </div>
+
+        <p class="mb-3 font-semibold text-gray-800">Gửi embe Nlinh đáng yêu của anh,</p>
+        <p class="mb-3">
+        Chúc Nlinh sẽ luôn tìm thấy những niềm vui nhỏ bé trong cuộc sống,
+        luôn gặp thật nhiều may mắn và có đủ sức mạnh để vượt qua những ngày không mấy dễ dàng.
+        anh mong em sẽ luôn giữ được sự đáng yêu và những điều tốt đẹp thuộc về riêng mình,
+        giống như những viên kẹo ngọt ngào vậy. anh biết không phải ngày nào cũng vui vẻ,
+        cũng có những lúc mọi thứ chẳng được như mong muốn, nhưng mong em đừng vì thế mà nản lòng nhé!.
+        Cứ từ từ bước tiếp, cố gắng từng chút một và cho bản thân thời gian để nghỉ ngơi khi mệt mỏi.
+        Cảm ơn em vìxuất hiện và mang đến cho tớ những niềm vui cùng sự ấm áp.
+        Mong rằng những ngày phía trước sẽ dịu dàng với cậu hơn, như một bản nhạc Lofi êm đềm,
+        để cậu có thể mỉm cười nhiều hơn và tận hưởng những điều bình dị mà đẹp đẽ trong cuộc sống. 💗
+        </p>
+        
+        <div class="my-4 p-3 bg-pink-100/70 border-2 border-dashed border-pink-300 rounded-xl text-center space-y-1">
+          <p class="font-pixel text-xs text-pink-600 font-bold">"Mong Nlinh luôn cười tươi,vũng vàng mỗi ngày!" 💖🐰</p>
+          <p class="text-[11px] text-purple-700 font-semibold">Anh hứa sẽ luôn ở bên nuông chiều & yêu thương embe ạaaaaaa</p>
+        </div>
+
+        <div class="text-right font-pixel text-xs text-pink-500 mt-4">
+          yêu phù thủy nhỏ của anh 💖<br>
+          <span class="text-[10px] text-purple-400">From your biggest fan</span>
+          <span class="text-[10px] text-purple-400">dhien</span>
+        </div>
+      </div>
+      <div class="p-2 bg-pink-100/60 border-t border-pink-200 flex justify-between items-center px-3">
+        <span class="font-pixel text-[10px] text-pink-700">Status: Sent with 10000000% Love</span>
+        <button onclick="showToast('Đã bắn tim tới Nlinh! 💕'); closeWindow('win-letter');" class="btn-y2k-3d px-4 py-1 font-pixel text-xs font-bold text-pink-800">Chan tui để gửi tim ♡</button>
+      </div>
+    </div>
+
+    <!-- WINDOW 2: ALBUM ẢNH NLINH -->
+    <div id="win-album" class="win-y2k-panel bg-white pointer-events-auto absolute w-80 sm:w-[450px] top-12 left-8 sm:left-1/4 hidden flex-col rounded-t-xl">
+      <div class="titlebar-y2k px-3 py-1.5 flex items-center justify-between cursor-move" onmousedown="dragStart(event, 'win-album')">
+        <div class="flex items-center space-x-2">
+          <span class="text-xs">🖼️</span>
+          <span class="font-pixel text-xs font-bold text-white">Album_Anh_Nlinh.exe</span>
+        </div>
+        <button onclick="closeWindow('win-album')" class="btn-y2k-3d w-5 h-5 flex items-center justify-center font-pixel text-xs text-pink-700 font-bold">✕</button>
+      </div>
+
+      <div class="p-4 bg-purple-50/50 flex flex-col items-center">
+        <div class="relative p-3 bg-white border-4 border-pink-200 rounded-xl shadow-md w-full flex flex-col items-center">
+          <span class="absolute -top-3 -left-3 text-2xl z-10 floating-bunny">🐰</span>
+          <span class="absolute -bottom-3 -right-3 text-2xl z-10">✨</span>
+
+          <div class="w-full h-56 bg-pink-100/60 rounded-lg overflow-hidden flex items-center justify-center border border-pink-200 relative">
+            <img id="nlinh-img-display" src="ảnh/hoabik.jpg" alt="Nlinh Photo" class="w-full h-full object-cover">
+          </div>
+
+          <div id="img-caption" class="font-pixel text-xs font-bold text-purple-800 mt-2 text-center">
+            Góc Xinh Đẹp Của Nlinh 🌸
+          </div>
+        </div>
+
+        <div class="w-full flex items-center justify-between mt-3 px-1">
+          <button onclick="prevPhoto()" class="btn-y2k-3d px-3 py-1 font-pixel text-xs font-bold text-purple-800">◄ Ảnh Trước</button>
+          
+          <label class="btn-y2k-3d px-3 py-1 font-pixel text-xs font-bold text-pink-700 cursor-pointer flex items-center space-x-1">
+            <i class="fa-solid fa-cloud-arrow-up text-xs"></i>
+            <span>Tải Ảnh Nlinh</span>
+            <input type="file" id="photo-upload-input" accept="image/*" class="hidden" onchange="handlePhotoUpload(event)">
+          </label>
+
+          <button onclick="nextPhoto()" class="btn-y2k-3d px-3 py-1 font-pixel text-xs font-bold text-purple-800">Ảnh Tiếp ►</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- WINDOW 3: MUSIC PLAYER -->
+    <div id="win-music" class="win-y2k-panel bg-white pointer-events-auto absolute w-80 sm:w-88 top-16 left-10 sm:left-1/3 hidden flex-col rounded-t-xl">
+      <div class="titlebar-y2k px-3 py-1.5 flex items-center justify-between cursor-move" onmousedown="dragStart(event, 'win-music')">
+        <div class="flex items-center space-x-2">
+          <span class="text-xs">🎧</span>
+          <span class="font-pixel text-xs font-bold text-white">Y2K_Music_Player.exe</span>
+        </div>
+        <button onclick="closeWindow('win-music')" class="btn-y2k-3d w-5 h-5 flex items-center justify-center font-pixel text-xs text-pink-700 font-bold">✕</button>
+      </div>
+
+      <div class="p-4 bg-indigo-50/50 flex flex-col items-center">
+        <div class="w-full bg-slate-900 rounded-xl p-3 text-emerald-400 border-2 border-indigo-200 mb-3 flex items-center space-x-3 shadow-inner">
+          <div id="music-cd" class="w-14 h-14 rounded-full bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 border-2 border-white flex items-center justify-center shrink-0">
+            <div class="w-4 h-4 rounded-full bg-slate-900 border border-white"></div>
+          </div>
+          <div class="overflow-hidden w-full">
+            <div class="font-pixel text-[11px] text-pink-300 truncate">Song: Sweet Lofi 20/10</div>
+            <div class="font-vt text-sm text-indigo-300">Artist: For Nlinh 💕</div>
+            <div class="flex items-end space-x-1 h-5 mt-1">
+              <div id="bar1" class="w-1.5 bg-pink-400 h-2 transition-all duration-150"></div>
+              <div id="bar2" class="w-1.5 bg-purple-400 h-4 transition-all duration-150"></div>
+              <div id="bar3" class="w-1.5 bg-indigo-400 h-1 transition-all duration-150"></div>
+              <div id="bar4" class="w-1.5 bg-yellow-300 h-3 transition-all duration-150"></div>
+              <div id="bar5" class="w-1.5 bg-pink-400 h-5 transition-all duration-150"></div>
+            </div>
+          </div>
+        </div>
+
+        <button onclick="toggleMusic()" id="btn-play" class="btn-y2k-3d px-6 py-2 font-pixel text-xs font-bold text-indigo-900 flex items-center space-x-2">
+          <i id="play-icon" class="fa-solid fa-play text-pink-500"></i>
+          <span id="play-text">PLAY MUSIC</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- WINDOW 4: BAT NGO FOR NLINH -->
+    <div id="win-gift" class="win-y2k-panel bg-white pointer-events-auto absolute w-80 sm:w-96 top-24 left-14 sm:left-1/3 hidden flex-col rounded-t-xl">
+      <div class="titlebar-y2k px-3 py-1.5 flex items-center justify-between cursor-move" onmousedown="dragStart(event, 'win-gift')">
+        <div class="flex items-center space-x-2">
+          <span class="text-xs">🎁</span>
+          <span class="font-pixel text-xs font-bold text-white">BatNgo_2010.gift</span>
+        </div>
+        <button onclick="closeWindow('win-gift')" class="btn-y2k-3d w-5 h-5 flex items-center justify-center font-pixel text-xs text-pink-700 font-bold">✕</button>
+      </div>
+
+      <div class="p-6 text-center bg-rose-50/60 flex flex-col items-center">
+        <div class="text-5xl mb-3 cursor-pointer animate-bounce" onclick="triggerSurprise()">
+          🎁
+        </div>
+        <h3 class="font-pixel text-xs font-bold text-rose-800 mb-2">QUÀ BẤT NGỜ CHO NLINH!</h3>
+        <p class="text-xs text-gray-600 font-semibold mb-4">Nhấn vào hộp quà hoặc nút bên dưới để nhận hiệu ứng bất ngờ ngọt ngào nhé!</p>
+
+        <button onclick="triggerSurprise()" class="btn-y2k-3d px-6 py-2 font-pixel text-xs font-bold text-rose-800">
+          ✨ MỞ QUÀ NGAY ✨
+        </button>
+      </div>
+    </div>
+
+    <!-- WINDOW 5: DO YOU LOVE ME DIALOG -->
+    <div id="win-dialog" class="win-y2k-panel bg-white pointer-events-auto absolute w-76 sm:w-88 top-28 left-8 sm:left-1/3 hidden flex-col rounded-t-xl">
+      <div class="titlebar-y2k px-3 py-1.5 flex items-center justify-between cursor-move" onmousedown="dragStart(event, 'win-dialog')">
+        <div class="flex items-center space-x-2">
+          <span class="text-xs">🐰</span>
+          <span class="font-pixel text-xs font-bold text-white">Question_For_Nlinh.dialog</span>
+        </div>
+        <button onclick="closeWindow('win-dialog')" class="btn-y2k-3d w-5 h-5 flex items-center justify-center font-pixel text-xs text-pink-700 font-bold">✕</button>
+      </div>
+
+      <div class="p-5 text-center bg-yellow-50/50">
+        <div class="text-3xl mb-2">🐰💕</div>
+        <div class="font-pixel text-xs font-bold text-purple-900 mb-4">
+          NLINH CÓ YÊU ANH KHÔNG HẢ?
+        </div>
+        <div class="flex justify-center space-x-3 relative h-10 items-center">
+          <button onclick="answerLove()" class="btn-y2k-3d px-5 py-1.5 font-pixel text-xs font-bold text-pink-600">
+            CÓ YÊU LẮM! ♡
+          </button>
+          <button id="btn-no" onmouseover="dodgeNo()" onclick="dodgeNo()" class="btn-y2k-3d px-4 py-1.5 font-pixel text-xs font-bold text-gray-500 transition-all duration-100">
+            Không :P
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-16 right-6 bg-white border-2 border-pink-400 p-3 rounded-xl shadow-xl transform translate-y-20 opacity-0 transition-all duration-300 z-50 flex items-center space-x-2">
+    <span class="text-base">🌸</span>
+    <span id="toast-msg" class="font-pixel text-xs text-purple-900 font-bold"></span>
+  </div>
+
+  <!-- Y2K TASKBAR -->
+  <div class="fixed bottom-0 left-0 w-full h-12 bg-white/85 backdrop-blur-md border-t-2 border-pink-300 flex items-center justify-between px-3 z-40">
+    <div class="flex items-center space-x-2">
+      <button onclick="toggleStartMenu()" class="btn-y2k-3d px-3 py-1 rounded-lg flex items-center space-x-1.5 font-pixel text-xs font-bold text-pink-800">
+        <span class="text-xs">🐰</span>
+        <span>Start</span>
+      </button>
+
+      <div id="taskbar-tabs" class="flex items-center space-x-1 overflow-x-auto max-w-md"></div>
+    </div>
+
+    <div class="btn-y2k-3d px-3 py-1 font-vt text-base font-bold text-purple-900 flex items-center space-x-2">
+      <span class="text-xs text-pink-500">🌸</span>
+      <span id="clock">12:00 PM</span>
+    </div>
+  </div>
+
+  <!-- START MENU -->
+  <div id="start-menu" class="fixed bottom-14 left-3 w-56 win-y2k-panel bg-white rounded-t-xl z-50 hidden flex-col overflow-hidden">
+    <div class="titlebar-y2k p-2.5 flex items-center space-x-2">
+      <div class="w-6 h-6 rounded-full bg-white flex items-center justify-center text-pink-500 font-pixel text-xs font-bold">N</div>
+      <span class="font-pixel text-xs font-bold text-white">Nlinh Desktop OS</span>
+    </div>
+    <div class="p-2 space-y-1 bg-pink-50/40">
+      <button onclick="openWindow('win-letter'); toggleStartMenu();" class="w-full text-left px-3 py-1.5 rounded-lg font-pixel text-xs text-gray-700 hover:bg-pink-100 flex items-center space-x-2">
+        <span>✉️</span>
+        <span>Thư Tình 20/10</span>
+      </button>
+      <button onclick="openWindow('win-album'); toggleStartMenu();" class="w-full text-left px-3 py-1.5 rounded-lg font-pixel text-xs text-gray-700 hover:bg-pink-100 flex items-center space-x-2">
+        <span>🖼️</span>
+        <span>Album Nlinh</span>
+      </button>
+      <button onclick="openWindow('win-music'); toggleStartMenu();" class="w-full text-left px-3 py-1.5 rounded-lg font-pixel text-xs text-gray-700 hover:bg-pink-100 flex items-center space-x-2">
+        <span>🎵</span>
+        <span>Phát Nhạc Lofi</span>
+      </button>
+      <hr class="border-pink-200 my-1">
+      <button onclick="triggerSurprise(); toggleStartMenu();" class="w-full text-left px-3 py-1.5 rounded-lg font-pixel text-xs text-pink-600 hover:bg-pink-100 flex items-center space-x-2">
+        <span>🎁</span>
+        <span>Mở Quà Bất Ngờ</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Custom JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
