@@ -90,7 +90,7 @@ function initCanvasBackground() {
 const defaultPhotos = [
   { url: "ảnh/hoabik.jpg", caption: "embe nhà ai đây:3 🌸" },
   { url: "ảnh/anh2.jpg", caption: "mê cái tay lắm nèeeeeee ✨" },
-  { url: "ảnh/0b624e40-0d7b-4e3c-aadc-0a836510ad6b.jpg", caption: "chung mik sau nay ne 👑" }
+  { url: "ảnh/0b624e40-0d7b-4e3c-aadc-0a836510ad6b.jpg", caption: "bá khíi 👑" }
 ];
 let currentPhotoIndex = 0;
 
