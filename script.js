@@ -88,9 +88,9 @@ function initCanvasBackground() {
 
 // --- Photos List for Album ---
 const defaultPhotos = [
-  { url: "ảnh/hoabik.jpg", caption: "embe nha ai de thuong vay ne 🌸" },
-  { url: "ảnh/anh2.jpg", caption: "vo tuoi dooooo ✨" },
-  { url: "ảnh/0b624e40-0d7b-4e3c-aadc-0a836510ad6b.jpg", caption: "cmik sau nì👑" }
+    { url: "ảnh/hoabik.jpg", caption: "embe nhà ai đây:3 🌸" },
+  { url: "ảnh/anh2.jpg", caption: "mê cái tay lắm nèeeeeee ✨" },
+  { url: "ảnh/0b624e40-0d7b-4e3c-aadc-0a836510ad6b.jpg", caption: "chung mik sau nay ne 👑" }
 let currentPhotoIndex = 0;
 
 function updatePhotoDisplay() {
