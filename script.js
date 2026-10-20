@@ -16,7 +16,6 @@ function initCanvasBackground() {
 
   function initParticles() {
     particles = [];
-    // Tạo các hạt trang trí lấp lánh nhẹ trên nền
     for (let i = 0; i < 25; i++) {
       particles.push({
         x: Math.random() * canvas.width,
@@ -32,20 +31,18 @@ function initCanvasBackground() {
   function drawBackground() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // 1. Vẽ lưới caro đỏ - trắng pastel (Gingham pattern)
     const size = 36;
     for (let x = 0; x < canvas.width; x += size) {
       for (let y = 0; y < canvas.height; y += size) {
         if ((Math.floor(x / size) + Math.floor(y / size)) % 2 === 0) {
           ctx.fillStyle = '#ffffff';
         } else {
-          ctx.fillStyle = '#ffd6d6'; // Đỏ pastel ngọt ngào
+          ctx.fillStyle = '#ffd6d6';
         }
         ctx.fillRect(x, y, size, size);
       }
     }
 
-    // 2. Vẽ hiệu ứng lưới mờ Y2K chồng lên trên cho có chiều sâu
     ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
     ctx.lineWidth = 1;
     const gridSize = 72;
@@ -62,7 +59,6 @@ function initCanvasBackground() {
       ctx.stroke();
     }
 
-    // 3. Cập nhật và vẽ các hạt trang trí nổi
     particles.forEach(p => {
       p.y += p.speedY;
       p.x += p.speedX;
@@ -87,6 +83,7 @@ function initCanvasBackground() {
 }
 
 // --- Photos List for Album ---
+// Lưu ý: Hãy đảm bảo các đường dẫn ảnh này khớp với thư mục thực tế của bạn
 const defaultPhotos = [
   { url: "ảnh/hoabik.jpg", caption: "embe_nha_dhien_phai_hog:> 🌸" },
   { url: "ảnh/anh2.jpg", caption: "cai_tay_dep_mun_xiu.exe ✨" },
@@ -97,7 +94,7 @@ let currentPhotoIndex = 0;
 function updatePhotoDisplay() {
   const imgEl = document.getElementById('nlinh-img-display');
   const captionEl = document.getElementById('img-caption');
-  if (imgEl && captionEl) {
+  if (imgEl && captionEl && defaultPhotos.length > 0) {
     imgEl.src = defaultPhotos[currentPhotoIndex].url;
     captionEl.innerText = defaultPhotos[currentPhotoIndex].caption;
   }
@@ -113,23 +110,6 @@ function nextPhoto() {
   playClickSound();
   currentPhotoIndex = (currentPhotoIndex + 1) % defaultPhotos.length;
   updatePhotoDisplay();
-}
-
-function handlePhotoUpload(event) {
-  const file = event.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      defaultPhotos.unshift({
-        url: e.target.result,
-        caption: "Ảnh Mới Của Nlinh 💖"
-      });
-      currentPhotoIndex = 0;
-      updatePhotoDisplay();
-      showToast("Đã tải ảnh Nlinh thành công! ✨");
-    };
-    reader.readAsDataURL(file);
-  }
 }
 
 // --- Window Drag & Drop System ---
@@ -219,6 +199,7 @@ function updateTaskbar() {
 
   winList.forEach(w => {
     const el = document.getElementById(w.id);
+    // Kiểm tra chính xác xem cửa sổ có đang hiển thị hay không (không chứa class hidden)
     if (el && !el.classList.contains('hidden')) {
       const btn = document.createElement('button');
       btn.className = 'btn-y2k-3d px-2.5 py-0.5 font-pixel text-[10px] text-purple-900 shrink-0 rounded';
@@ -368,7 +349,6 @@ function playMelodyStep() {
 }
 
 function toggleMusic() {
-  initCanvasBackground(); // Safe trigger check
   initAudio();
   const disc = document.getElementById('music-cd');
   const playIcon = document.getElementById('play-icon');
@@ -388,8 +368,9 @@ function toggleMusic() {
   }
 }
 
-// Auto open Letter on load & Init Canvas Background
+// Khởi chạy khi tải trang xong
 window.onload = () => {
   initCanvasBackground();
-  openWindow('win-letter');
+  openWindow('win-letter'); // Mở sẵn thư tình và tự động cập nhật taskbar
+  updatePhotoDisplay();
 };
